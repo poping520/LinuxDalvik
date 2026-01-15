@@ -8,8 +8,14 @@ project(LinuxDalvik)
 
 set(CMAKE_CXX_STANDARD 11)
 
+include_directories(
+        compat/include
+)
+
 add_subdirectory(compat)
+add_subdirectory(dalvik)
 add_subdirectory(external/zlib)
+add_subdirectory(external/libffi)
 add_subdirectory(libnativehelper)
 
 add_executable(LinuxDalvik main.cpp)
