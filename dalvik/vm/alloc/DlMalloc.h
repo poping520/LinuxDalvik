@@ -23,8 +23,13 @@
 #define HAVE_MORECORE 1
 #define MSPACES 1
 #define NO_MALLINFO 1
-#define ONLY_MSPACES 1
+// @Modify
+//#define ONLY_MSPACES 1
 #define MALLOC_INSPECT_ALL 1
+
+// @Modify
+#define ONLY_MSPACES  0
+#define USE_DL_PREFIX 1
 
 /* Include the proper definitions. */
 #include "../../../bionic/libc/upstream-dlmalloc/malloc.h"

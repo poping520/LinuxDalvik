@@ -28,3 +28,7 @@ target_include_directories(nativehelper PUBLIC ${NATIVEHELPER_INCLUDE_DIRS})
 target_link_libraries(nativehelper PRIVATE
         compat
 )
+
+install(TARGETS nativehelper
+        LIBRARY DESTINATION "${INSTALL_DIR}/lib"
+)

@@ -184,7 +184,6 @@ set(DVM_COMPILE_DEFINITIONS
         ANDROID_SMP=${ANDROID_SMP}
         DVM_SHOW_EXCEPTION=1
         HAVE_LITTLE_ENDIAN
-        HAVE_STRLCPY
         OS_SHARED_LIB_FORMAT_STR="lib%s.so"
 )
 
@@ -287,6 +286,12 @@ elseif (DVM_ARCH MATCHES "x86|i386|i686")
         #        )
 
         # portable
+        list(APPEND DVM_ARCH_SOURCES
+                ${DVM_SRC_DIR}/arch/generic/Call.cpp
+                ${DVM_SRC_DIR}/arch/generic/Hints.cpp
+                ${DVM_SRC_DIR}/mterp/out/InterpC-allstubs.cpp
+        )
+
         list(APPEND DVM_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/../external/libffi/${DVM_OS}-${DVM_ARCH})
         list(APPEND DVM_COMPILE_DEFINITIONS
                 dvmAsmInstructionStart=0
@@ -294,11 +299,6 @@ elseif (DVM_ARCH MATCHES "x86|i386|i686")
                 dvmAsmSisterStart=0
                 dvmAsmSisterEnd=0
                 DVM_NO_ASM_INTERP=1
-        )
-        list(APPEND DVM_ARCH_SOURCES
-                ${DVM_SRC_DIR}/arch/generic/Call.cpp
-                ${DVM_SRC_DIR}/arch/generic/Hints.cpp
-                ${DVM_SRC_DIR}/mterp/out/InterpC-allstubs.cpp
         )
 
         if (WITH_JIT)
@@ -378,29 +378,7 @@ if (WITH_SELF_VERIFICATION AND NOT DVM_ARCH MATCHES "mips")
     add_dvm_library(dvm_sv)
 endif ()
 
-add_library(dvm_interp SHARED
-        ${DVM_COMMON_SOURCES}
-        ${DVM_ARCH_SOURCES}
+
+install(TARGETS dvm
+        LIBRARY DESTINATION "${INSTALL_DIR}/lib"
 )
-
-target_include_directories(dvm_interp PRIVATE ${DVM_INCLUDE_DIRS})
-target_compile_definitions(dvm_interp PRIVATE ${DVM_COMPILE_DEFINITIONS})
-target_compile_options(dvm_interp PRIVATE ${DVM_COMPILE_OPTIONS})
-target_compile_definitions(dvm_interp PRIVATE -DWITH_JIT=FALSE)
-
-target_link_libraries(dvm_interp
-        # corkscrew
-        cutils
-        dl
-        log
-        nativehelper
-        z
-        stlport
-        dex
-)
-
-if (DVM_OS STREQUAL "Linux")
-    target_link_libraries(dvm_interp pthread rt)
-else ()
-    target_link_libraries(dvm_interp pthread)
-endif ()

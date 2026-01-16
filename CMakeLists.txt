@@ -6,21 +6,26 @@ set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -m32")
 
 project(LinuxDalvik)
 
+set(INSTALL_DIR "/tmp/linux-dalvik")
+
+message("INSTALL_DIR: " ${INSTALL_DIR})
+
 set(CMAKE_CXX_STANDARD 11)
 
+# Common include dirs
 include_directories(
         compat/include
 )
 
-add_subdirectory(compat)
-add_subdirectory(dalvik)
 add_subdirectory(external/zlib)
 add_subdirectory(external/libffi)
+add_subdirectory(compat)
 add_subdirectory(libnativehelper)
+add_subdirectory(dalvik)
+add_subdirectory(art/dalvikvm)
 
-add_executable(LinuxDalvik main.cpp)
 
-target_link_libraries(
-        LinuxDalvik PRIVATE
-        nativehelper
+install(FILES framework-dex/core.jar
+        DESTINATION "${INSTALL_DIR}/framework"
 )
+

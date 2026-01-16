@@ -31,3 +31,8 @@ target_include_directories(z
 
 target_compile_definitions(z PRIVATE USE_MMAP)
 target_compile_options(z PRIVATE -O3)
+
+
+install(TARGETS z
+        LIBRARY DESTINATION "${INSTALL_DIR}/lib"
+)

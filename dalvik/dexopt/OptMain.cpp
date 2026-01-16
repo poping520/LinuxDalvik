@@ -551,34 +551,6 @@ bail:
     return result;
 }
 
-#ifndef HAVE_ANDROID_OS
-#include <sys/prctl.h>
-
-static const char* process_name = "unknown";
-
-void set_process_name(const char* new_name) {
-    if (new_name == NULL) {
-        return;
-    }
-
-    // We never free the old name. Someone else could be using it.
-    int len = strlen(new_name);
-    char* copy = (char*) malloc(len + 1);
-    strcpy(copy, new_name);
-    process_name = (const char*) copy;
-
-#if defined(HAVE_PRCTL)
-    if (len < 16) {
-        prctl(PR_SET_NAME, (unsigned long) new_name, 0, 0, 0);
-    } else {
-        prctl(PR_SET_NAME, (unsigned long) new_name + len - 15, 0, 0, 0);
-    }
-#endif
-}
-
-#endif
-
-
 /*
  * Main entry point.  Decide where to go.
  */
