@@ -3750,7 +3750,11 @@ static bool computeFieldOffsets(ClassObject* clazz)
      * We map a C struct directly on top of java/lang/Class objects.  Make
      * sure we left enough room for the instance fields.
      */
-    assert(!dvmIsTheClassClass(clazz) || (size_t)fieldOffset <
+
+    // @Modify bugfix
+    // CLASS_FIELD_SLOTS   4
+    // @see libcore/libdvm/src/main/java/java/lang/Class.java
+    assert(!dvmIsTheClassClass(clazz) || (size_t)fieldOffset <=
         OFFSETOF_MEMBER(ClassObject, instanceData) + sizeof(clazz->instanceData));
 
     clazz->objectSize = fieldOffset;
