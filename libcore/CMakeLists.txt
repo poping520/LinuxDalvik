@@ -80,15 +80,15 @@ endif ()
 target_link_libraries(javacore
         PRIVATE
         nativehelper
-#        z
+        z
+        fdlibm
 #        crypto
 #        expat
 #        icuuc
 #        icui18n
 )
 
-target_link_libraries(javacore PRIVATE z)
-target_link_libraries(javacore PRIVATE crypto)
+
 
 target_compile_definitions(javacore PRIVATE OS_SHARED_LIB_FORMAT_STR="lib%s.so")
 
