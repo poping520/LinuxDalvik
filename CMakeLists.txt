@@ -20,6 +20,7 @@ include_directories(
 add_subdirectory(external/zlib)
 add_subdirectory(external/libffi)
 add_subdirectory(external/fdlibm)
+add_subdirectory(external/expat)
 add_subdirectory(compat)
 add_subdirectory(libnativehelper)
 add_subdirectory(dalvik)
