@@ -2,60 +2,59 @@ cmake_minimum_required(VERSION 3.10)
 project(libcore_native C CXX)
 
 add_library(javacore SHARED
-        ${CMAKE_CURRENT_SOURCE_DIR}/dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp
-
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/AsynchronousSocketCloseMonitor.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/ExecStrings.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/IcuUtilities.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/JniException.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/NetworkUtilities.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/Register.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/ZipUtilities.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/cbigint.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_io_Console.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_io_File.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_io_ObjectStreamClass.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_Character.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_Double.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_Float.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_Math.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_ProcessManager.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_RealToString.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_StrictMath.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_StringToReal.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_lang_System.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_math_NativeBN.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_nio_ByteOrder.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_nio_charset_Charsets.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_text_Bidi.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_regex_Matcher.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_regex_Pattern.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_zip_Adler32.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_zip_CRC32.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_zip_Deflater.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/java_util_zip_Inflater.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_AlphabeticIndex.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_DateIntervalFormat.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_ICU.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeBreakIterator.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeCollation.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeConverter.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeDecimalFormat.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeIDN.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativeNormalizer.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_NativePluralRules.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_TimeZoneNames.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_icu_Transliterator.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_io_Memory.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_io_OsConstants.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_io_Posix.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/libcore_net_RawSocket.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/readlink.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/realpath.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/sun_misc_Unsafe.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/luni/src/main/native/valueOf.cpp
+        dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp
+        luni/src/main/native/AsynchronousSocketCloseMonitor.cpp
+        luni/src/main/native/ExecStrings.cpp
+        luni/src/main/native/IcuUtilities.cpp
+        luni/src/main/native/JniException.cpp
+        luni/src/main/native/NetworkUtilities.cpp
+        luni/src/main/native/Register.cpp
+        luni/src/main/native/ZipUtilities.cpp
+        luni/src/main/native/cbigint.cpp
+        luni/src/main/native/java_io_Console.cpp
+        luni/src/main/native/java_io_File.cpp
+        luni/src/main/native/java_io_ObjectStreamClass.cpp
+        luni/src/main/native/java_lang_Character.cpp
+        luni/src/main/native/java_lang_Double.cpp
+        luni/src/main/native/java_lang_Float.cpp
+        luni/src/main/native/java_lang_Math.cpp
+        luni/src/main/native/java_lang_ProcessManager.cpp
+        luni/src/main/native/java_lang_RealToString.cpp
+        luni/src/main/native/java_lang_StrictMath.cpp
+        luni/src/main/native/java_lang_StringToReal.cpp
+        luni/src/main/native/java_lang_System.cpp
+        luni/src/main/native/java_math_NativeBN.cpp
+        luni/src/main/native/java_nio_ByteOrder.cpp
+        luni/src/main/native/java_nio_charset_Charsets.cpp
+        luni/src/main/native/java_text_Bidi.cpp
+        luni/src/main/native/java_util_regex_Matcher.cpp
+        luni/src/main/native/java_util_regex_Pattern.cpp
+        luni/src/main/native/java_util_zip_Adler32.cpp
+        luni/src/main/native/java_util_zip_CRC32.cpp
+        luni/src/main/native/java_util_zip_Deflater.cpp
+        luni/src/main/native/java_util_zip_Inflater.cpp
+        luni/src/main/native/libcore_icu_AlphabeticIndex.cpp
+        luni/src/main/native/libcore_icu_DateIntervalFormat.cpp
+        luni/src/main/native/libcore_icu_ICU.cpp
+        luni/src/main/native/libcore_icu_NativeBreakIterator.cpp
+        luni/src/main/native/libcore_icu_NativeCollation.cpp
+        luni/src/main/native/libcore_icu_NativeConverter.cpp
+        luni/src/main/native/libcore_icu_NativeDecimalFormat.cpp
+        luni/src/main/native/libcore_icu_NativeIDN.cpp
+        luni/src/main/native/libcore_icu_NativeNormalizer.cpp
+        luni/src/main/native/libcore_icu_NativePluralRules.cpp
+        luni/src/main/native/libcore_icu_TimeZoneNames.cpp
+        luni/src/main/native/libcore_icu_Transliterator.cpp
+        luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp
+        luni/src/main/native/libcore_io_Memory.cpp
+        luni/src/main/native/libcore_io_OsConstants.cpp
+        luni/src/main/native/libcore_io_Posix.cpp
+        luni/src/main/native/libcore_net_RawSocket.cpp
+        luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp
+        luni/src/main/native/readlink.cpp
+        luni/src/main/native/realpath.cpp
+        luni/src/main/native/sun_misc_Unsafe.cpp
+        luni/src/main/native/valueOf.cpp
 )
 
 set_target_properties(javacore PROPERTIES OUTPUT_NAME javacore)
@@ -82,10 +81,10 @@ target_link_libraries(javacore
         nativehelper
         z
         fdlibm
+        icuuc
+        icui18n
 #        crypto
 #        expat
-#        icuuc
-#        icui18n
 )
 
 
@@ -97,3 +96,9 @@ if (ANDROID_BUILD)
 else ()
     target_link_libraries(javacore PRIVATE dl pthread rt)
 endif ()
+
+install(TARGETS javacore
+        LIBRARY
+        DESTINATION "${INSTALL_DIR}/lib"
+)
+

@@ -34,5 +34,6 @@ target_compile_options(z PRIVATE -O3)
 
 
 install(TARGETS z
-        LIBRARY DESTINATION "${INSTALL_DIR}/lib"
+        LIBRARY
+        DESTINATION "${INSTALL_DIR}/lib"
 )
